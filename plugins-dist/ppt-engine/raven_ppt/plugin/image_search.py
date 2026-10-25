@@ -129,7 +129,7 @@ class PptImageSearchTool(Tool):
         """
         async with httpx.AsyncClient(proxy=self.proxy, trust_env=True) as client:
             response = await client.post(
-                "https://google.serper.dev/images",
+                f"{(os.getenv('SERPER_BASE_URL') or 'https://google.serper.dev').rstrip('/')}/images",
                 json={"q": query, "num": 20},
                 headers={
                     "Accept": "application/json",

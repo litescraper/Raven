@@ -1178,7 +1178,7 @@ class WebSearchTool(Tool):
         """
         if self.provider == "serper":
             return await client.post(
-                "https://google.serper.dev/search",
+                f"{(os.getenv('SERPER_BASE_URL') or 'https://google.serper.dev').rstrip('/')}/search",
                 json=({"q": query, "num": n} if page <= 1 else {"q": query, "num": n, "page": page}),
                 headers={
                     "Accept": "application/json",

@@ -452,7 +452,7 @@ class WebSearchTool(Tool):
         """One search request, built the way ``vendor`` expects, carrying ``key``."""
         if vendor == "serper":
             return await client.post(
-                "https://google.serper.dev/search",
+                f"{(os.getenv('SERPER_BASE_URL') or 'https://google.serper.dev').rstrip('/')}/search",
                 json={"q": query, "num": n},
                 headers={
                     "Accept": "application/json",
@@ -842,7 +842,7 @@ class ImageSearchTool(Tool):
         auth_json = {"Accept": "application/json", "Content-Type": "application/json"}
         if vendor == "serper":
             return await client.post(
-                "https://google.serper.dev/images",
+                f"{(os.getenv('SERPER_BASE_URL') or 'https://google.serper.dev').rstrip('/')}/images",
                 json={"q": query, "num": n},
                 headers={**auth_json, "X-API-KEY": key},
                 timeout=15.0,

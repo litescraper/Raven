@@ -28,6 +28,14 @@ Raven is **the harness of harnesses, built for recursive self-improvement (RSI).
 
 **Built-in Agents: Raven-Research**, **Raven-Code**, **Raven-Design**, and **Raven-Oncall** support research, coding, visual design, and unattended workflow automation.
 
+For Serper-backed search and image tools, set `SERPER_BASE_URL` to your
+provider's base URL, without the `/search` or `/images` suffix. Trailing
+slashes are removed before appending the existing route. An unset or empty base
+keeps `https://google.serper.dev`; keep the provider key in the existing Serper
+API-key setting.
+
+Support any Serper.dev-compatible endpoint (like litescrape.com, serpbase.dev, serpensapi.org, and others)
+
 <p align="center">
   <a href="https://github.com/user-attachments/assets/1756ab94-706d-4c07-b8b3-3ef6dd8a147f"><img src="https://github.com/user-attachments/assets/1756ab94-706d-4c07-b8b3-3ef6dd8a147f" alt="Multi-Agent Orchestration Benchmark: Node F1, Edge F1, Partial Order Accuracy, and Exact Match Rate" width="100%"></a>
 </p>
